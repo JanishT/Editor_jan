@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const VIDEO_SRC =
@@ -21,72 +20,24 @@ const aboutImages = [
 ];
 
 const projects = [
-  { title: "Rone Garage", category: "Automotive", src: "/videos/rone.garage.mp4" },
-  { title: "Nexuslite", category: "Real estate", src: "/videos/nexuslite-dxb_real estate.mp4" },
-  { title: "Makkah Market", category: "Offer campaign", src: "/videos/Dhamakka_offer-Makkah_Market.mp4" },
-  { title: "Medical Ad", category: "Commercial", src: "/videos/Ad_medical.mp4" },
-  { title: "Arabuni Medical", category: "Brand story", src: "/videos/Arabuni_medical ad _fys.mp4" },
-  
+  { title: "Rone Garage", category: "Automotive", src: "https://drive.google.com/file/d/13YXLSIiF4dhAQNFq4zsbeD5enfqcnu4b/preview" },
+  { title: "Nexuslite", category: "Real estate", src: "https://drive.google.com/file/d/1EPWvWTQrlM0MY_BJLYToDk_H-k1lJmnP/preview" },
+  { title: "Makkah Market", category: "Offer campaign", src: "https://drive.google.com/file/d/1BHb7cF6X2N4x96oGdNZbvt_s5UOEhFgU/preview" },
+  { title: "Medical Ad", category: "Commercial", src: "https://drive.google.com/file/d/1wrigfkdE-xMGkic1eMZK98KGUzS674cF/preview" },
+  { title: "Arabuni Medical", category: "Brand story", src: "https://drive.google.com/file/d/1YrfEeIn_15B69zpXin55P6Hwn_A6iKBB/preview" },
 ];
 
 function ProjectVideo({ src, title }: { src: string; title: string }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-        if (entry.isIntersecting) setIsLoaded(true);
-      },
-      { rootMargin: "120px", threshold: 0.15 },
-    );
-
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video || !isLoaded) return;
-
-    if (isVisible) {
-      void video.play().catch(() => {
-        // Playback can be blocked by browser autoplay policies; controls remain available.
-      });
-    } else {
-      video.pause();
-    }
-  }, [isLoaded, isVisible]);
-
   return (
     <div className="relative h-full w-full">
-      <video
-        ref={videoRef}
-        className="h-full w-full object-contain"
-        src={isLoaded ? encodeURI(src) : undefined}
-        autoPlay={isVisible}
-        loop
-        muted={isMuted}
-        controls
-        playsInline
-        preload="none"
-        aria-label={`${title} project video`}
+      <iframe
+        className="h-full w-full scale-[1.15] border-0"
+        src={src}
+        title={`${title} project video`}
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowFullScreen
+        loading="lazy"
       />
-      <button
-        type="button"
-        onClick={() => setIsMuted((muted) => !muted)}
-        className="absolute right-3 top-3 z-10 rounded-full border border-white/25 bg-black/70 px-3 py-2 text-xs font-medium text-white shadow-lg backdrop-blur transition-colors hover:bg-black/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-        aria-label={isMuted ? `Unmute ${title}` : `Mute ${title}`}
-        aria-pressed={!isMuted}
-      >
-        {isMuted ? "🔇 Unmute" : "🔊 Sound on"}
-      </button>
     </div>
   );
 }
