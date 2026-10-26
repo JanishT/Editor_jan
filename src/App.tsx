@@ -131,14 +131,55 @@ export default function App() {
       ) : (
         <section className="relative z-10 flex flex-col items-center justify-center px-6 py-[90px] pb-40 pt-20 text-center ">
           <p className="animate-fade-rise mb-8 text-[10px] uppercase tracking-wide text-muted-foreground sm:text-[20px] md:text-[30px]">
-            Janish T. / Video Editor
+            Janish T. | Video Editor
           </p>
 
           <h1 className="animate-fade-rise max-w-7xl text-5xl font-normal tracking-[-2.46px] sm:text-7xl md:text-8xl" style={serif}>
             Every Frame Tells a Story.
             <br />
           </h1>
+<div className="animate-fade-rise-delay mt-8 flex items-center justify-center gap-4 sm:gap-5">
+  {/* Premiere Pro */}
+  <div className="flex flex-col items-center gap-1.5" title="Adobe Premiere Pro">
+    <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/70 text-white/85 transition-colors hover:border-white hover:text-white sm:h-12 sm:w-12">
+      <span className="text-sm font-semibold tracking-tight sm:text-base">Pr</span>
+    </div>
+    <span className="text-[9px] uppercase tracking-widest text-white/55">Premiere Pro</span>
+  </div>
 
+  {/* After Effects */}
+  <div className="flex flex-col items-center gap-1.5" title="Adobe After Effects">
+    <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/70 text-white/85 transition-colors hover:border-white hover:text-white sm:h-12 sm:w-12">
+      <span className="text-sm font-semibold tracking-tight sm:text-base">Ae</span>
+    </div>
+    <span className="text-[9px] uppercase tracking-widest text-white/55">After Effects</span>
+  </div>
+
+  {/* CapCut */}
+ {/* CapCut */}
+<div className="flex flex-col items-center gap-1.5" title="CapCut">
+  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/70 text-white/85 transition-colors hover:border-white hover:text-white sm:h-12 sm:w-12">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5 sm:h-6 sm:w-6"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {/* top and bottom rounded frame */}
+      <path d="M4 8V6.5A1.5 1.5 0 0 1 5.5 5H15.5A1.5 1.5 0 0 1 17 6.5V7" />
+      <path d="M4 14v3.5A1.5 1.5 0 0 0 5.5 19H15.5A1.5 1.5 0 0 0 17 17.5V17" />
+      {/* crossing diagonals */}
+      <path d="M4 8l16.5 8.5" />
+      <path d="M4 14L20.5 5.5" />
+    </svg>
+  </div>
+  <span className="text-[9px] uppercase tracking-widest text-white/55">CapCut</span>
+</div>
+</div>
           <p className="animate-fade-rise-delay mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             Crafting cinematic edits, engaging reels, and compelling advertisements through creative
             storytelling, rhythm, and sound.
@@ -147,6 +188,20 @@ export default function App() {
           {/* <Button asChild variant="glass" size="hero" className="animate-fade-rise-delay-2 mt-12 gap-3">
             <a href="/work">Explore My Work <span aria-hidden="true">↗</span></a>
           </Button> */}
+          <a
+  href="https://drive.google.com/drive/folders/15aAsuN1vt6S4jkhroczUVuWqg6LqUqih"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="animate-fade-rise-delay-2 group mt-10 inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-2.5 text-xs uppercase tracking-widest text-white/85 transition-colors hover:border-white hover:bg-white/10 hover:text-white sm:text-sm"
+>
+  View Portfolio
+  <span
+    aria-hidden="true"
+    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+  >
+    ↗
+  </span>
+</a>
 
           <p className="animate-fade-rise-delay-2 mt-8 text-sm uppercase tracking-wide text-muted-foreground">
             Video Editing · Color Grading · Sound Design
