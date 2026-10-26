@@ -145,7 +145,7 @@ export default function App() {
           </p>
 
           <Button asChild variant="glass" size="hero" className="animate-fade-rise-delay-2 mt-12 gap-3">
-            <a href="/work">Explore My Work <span aria-hidden="true">↗</span></a>
+            <a href="work">Explore My Work <span aria-hidden="true">↗</span></a>
           </Button>
 
           <p className="animate-fade-rise-delay-2 mt-8 text-sm uppercase tracking-wide text-muted-foreground">
