@@ -129,8 +129,7 @@ export default function App() {
           </section>
         </main>
       ) : (
-        <section className="relative z-10 flex flex-col items-center justify-center px-6 py-[90px] pb-40 pt-20 text-center ">
-          <p className="animate-fade-rise mb-8 text-[14px] uppercase tracking-wide text-muted-foreground sm:text-[20px] md:text-[30px]">
+       <section className="relative z-10 flex flex-col items-center justify-center px-6 py-[90px] pb-40 pt-4 text-center sm:pt-20"> <p className="animate-fade-rise mb-8 text-[14px] uppercase tracking-wide text-muted-foreground sm:text-[20px] md:text-[30px]">
             Janish T. | Video Editor
           </p>
 
