@@ -144,9 +144,9 @@ export default function App() {
             storytelling, rhythm, and sound.
           </p>
 
-          <Button asChild variant="glass" size="hero" className="animate-fade-rise-delay-2 mt-12 gap-3">
+          {/* <Button asChild variant="glass" size="hero" className="animate-fade-rise-delay-2 mt-12 gap-3">
             <a href="/work">Explore My Work <span aria-hidden="true">↗</span></a>
-          </Button>
+          </Button> */}
 
           <p className="animate-fade-rise-delay-2 mt-8 text-sm uppercase tracking-wide text-muted-foreground">
             Video Editing · Color Grading · Sound Design
