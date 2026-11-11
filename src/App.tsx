@@ -69,6 +69,13 @@ const projects: Project[] = [
   
   },
 ];
+const [hash, setHash] = useState(window.location.hash);
+useEffect(() => {
+  const onHash = () => setHash(window.location.hash);
+  window.addEventListener("hashchange", onHash);
+  return () => window.removeEventListener("hashchange", onHash);
+}, []);
+const isWorkPage = hash === "#/work";
 
 type ToolId = "premiere" | "aftereffects" | "capcut" | "claude" | "gemini" | "flow";
 
@@ -243,12 +250,21 @@ export default function App() {
       <div className="fixed inset-0 z-0 bg-slate-950/35" aria-hidden="true" />
 
       <nav className="relative z-10 mx-auto flex max-w-7xl flex-row items-center justify-between px-6 py-6 sm:px-8">
-      <a href="/" className="text-2xl font-bold leading-tight text-foreground" style={display}>
+     <a href="#/"  className="text-2xl font-bold leading-tight text-foreground" style={display}>
   Janish T.
 </a>
         {isWorkPage && (
           <div className="flex items-center gap-6 text-sm text-white/75">
-            <a href="#contact" className="transition-colors hover:text-white">Contact</a>
+           <a
+  href="#/work"
+  onClick={(e) => {
+    e.preventDefault();
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  }}
+  className="transition-colors hover:text-white"
+>
+  Contact
+</a>
             <a href="/" className="transition-colors hover:text-white">
               Back home <span aria-hidden="true">↗</span>
             </a>
@@ -454,7 +470,7 @@ export default function App() {
           </p>
 
           <Button asChild variant="glass" size="hero" className="animate-fade-rise-delay-2 mt-12 gap-3">
-            <a href="/work">Explore My Work <span aria-hidden="true">↗</span></a>
+          <a href="#/" className="transition-colors hover:text-white">Back home ↗</a>
           </Button>
 
           <p className="animate-fade-rise-delay-2 mt-8 text-sm uppercase tracking-wide text-muted-foreground">
