@@ -335,14 +335,14 @@ export default function App() {
                   Real edits made for real businesses. Tap any reel to watch it right here.
                 </p>
               </div>
-              <a
+              {/* <a
                 href={COFFEE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 self-start rounded-full bg-[#FFDD00] px-5 py-2.5 text-sm font-medium text-slate-900 shadow-lg transition-transform hover:scale-105"
               >
                 <span aria-hidden="true">☕</span> Buy me a coffee
-              </a>
+              </a> */}
             </div>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
