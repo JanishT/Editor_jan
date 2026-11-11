@@ -69,13 +69,7 @@ const projects: Project[] = [
   
   },
 ];
-const [hash, setHash] = useState(window.location.hash);
-useEffect(() => {
-  const onHash = () => setHash(window.location.hash);
-  window.addEventListener("hashchange", onHash);
-  return () => window.removeEventListener("hashchange", onHash);
-}, []);
-const isWorkPage = hash === "#/work";
+
 
 type ToolId = "premiere" | "aftereffects" | "capcut" | "claude" | "gemini" | "flow";
 
@@ -255,16 +249,7 @@ export default function App() {
 </a>
         {isWorkPage && (
           <div className="flex items-center gap-6 text-sm text-white/75">
-           <a
-  href="#/work"
-  onClick={(e) => {
-    e.preventDefault();
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  }}
-  className="transition-colors hover:text-white"
->
-  Contact
-</a>
+           <a href="#contact" className="transition-colors hover:text-white">Contact</a>
             <a href="/" className="transition-colors hover:text-white">
               Back home <span aria-hidden="true">↗</span>
             </a>
@@ -470,7 +455,7 @@ export default function App() {
           </p>
 
           <Button asChild variant="glass" size="hero" className="animate-fade-rise-delay-2 mt-12 gap-3">
-          <a href="#/" className="transition-colors hover:text-white">Back home ↗</a>
+           <a href="/work">Explore My Work <span aria-hidden="true">↗</span></a>
           </Button>
 
           <p className="animate-fade-rise-delay-2 mt-8 text-sm uppercase tracking-wide text-muted-foreground">
