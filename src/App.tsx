@@ -228,8 +228,44 @@ function VideoModal({ project, onClose }: { project: Project; onClose: () => voi
 }
 
 export default function App() {
-  const isWorkPage = window.location.pathname.replace(/\/+$/, "") === "/work";
+  const getInitialPath = () => {
+    const p = window.location.pathname.replace(/\/+$/, "");
+    if (p === "/work") return "/work";
+    const h = window.location.hash.replace(/^#\/?/, "");
+    if (h === "work") return "/work";
+    return "/";
+  };
+
+  const [currentPath, setCurrentPath] = useState(getInitialPath);
   const [active, setActive] = useState<Project | null>(null);
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      const p = window.location.pathname.replace(/\/+$/, "");
+      const h = window.location.hash.replace(/^#\/?/, "");
+      if (p === "/work" || h === "work") {
+        setCurrentPath("/work");
+      } else {
+        setCurrentPath("/");
+      }
+    };
+
+    window.addEventListener("popstate", handleLocationChange);
+    window.addEventListener("hashchange", handleLocationChange);
+    return () => {
+      window.removeEventListener("popstate", handleLocationChange);
+      window.removeEventListener("hashchange", handleLocationChange);
+    };
+  }, []);
+
+  const navigateTo = (to: string) => {
+    window.history.pushState({}, "", to);
+    const clean = to.replace(/\/+$/, "");
+    setCurrentPath(clean === "/work" ? "/work" : "/");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const isWorkPage = currentPath === "/work";
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-background">
@@ -244,13 +280,28 @@ export default function App() {
       <div className="fixed inset-0 z-0 bg-slate-950/35" aria-hidden="true" />
 
       <nav className="relative z-10 mx-auto flex max-w-7xl flex-row items-center justify-between px-6 py-6 sm:px-8">
-     <a href="#/"  className="text-2xl font-bold leading-tight text-foreground" style={display}>
-  Janish T.
-</a>
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            navigateTo("/");
+          }}
+          className="text-2xl font-bold leading-tight text-foreground cursor-pointer"
+          style={display}
+        >
+          Janish T.
+        </a>
         {isWorkPage && (
           <div className="flex items-center gap-6 text-sm text-white/75">
-           <a href="#contact" className="transition-colors hover:text-white">Contact</a>
-            <a href="/" className="transition-colors hover:text-white">
+            <a href="#contact" className="transition-colors hover:text-white">Contact</a>
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo("/");
+              }}
+              className="transition-colors hover:text-white cursor-pointer"
+            >
               Back home <span aria-hidden="true">↗</span>
             </a>
           </div>
@@ -454,8 +505,21 @@ export default function App() {
             storytelling, rhythm, and sound.
           </p>
 
-          <Button asChild variant="glass" size="hero" className="animate-fade-rise-delay-2 mt-12 gap-3">
-           <a href="/work">Explore My Work <span aria-hidden="true">↗</span></a>
+          <Button
+            asChild
+            variant="glass"
+            size="hero"
+            className="animate-fade-rise-delay-2 mt-12 gap-3 cursor-pointer"
+          >
+            <a
+              href="/work"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo("/work");
+              }}
+            >
+              Explore My Work <span aria-hidden="true">↗</span>
+            </a>
           </Button>
 
           <p className="animate-fade-rise-delay-2 mt-8 text-sm uppercase tracking-wide text-muted-foreground">
