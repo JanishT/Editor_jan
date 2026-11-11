@@ -243,9 +243,9 @@ export default function App() {
       <div className="fixed inset-0 z-0 bg-slate-950/35" aria-hidden="true" />
 
       <nav className="relative z-10 mx-auto flex max-w-7xl flex-row items-center justify-between px-6 py-6 sm:px-8">
-        <a href="/" className="text-3xl text-foreground" style={serif}>
-          Janish T.
-        </a>
+      <a href="/" className="text-2xl font-bold leading-tight text-foreground" style={display}>
+  Janish T.
+</a>
         {isWorkPage && (
           <div className="flex items-center gap-6 text-sm text-white/75">
             <a href="#contact" className="transition-colors hover:text-white">Contact</a>
@@ -388,9 +388,9 @@ export default function App() {
 
           {/* CONTACT */}
           <section id="contact" className="mx-auto mt-20 max-w-3xl text-center">
-            <h2 className="text-5xl font-normal sm:text-6xl" style={serif}>
-              Let’s grow your business with video.
-            </h2>
+          <h2 className="text-3xl font-bold leading-tight text-white sm:text-5xl" style={display}>
+  Let’s grow your business with video.
+</h2>
             <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-white/70">
               Tell me about your brand and who you want to reach. I’ll reply with ideas for
               edits that fit your audience.
