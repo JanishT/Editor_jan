@@ -7,7 +7,7 @@ const serif = { fontFamily: "'Instrument Serif', serif" };
 
 // ====== EDIT THESE ======
 const EMAIL = "janishtzx@gmail.com";
-const COFFEE_URL = "https://buymeacoffee.com/YOUR_USERNAME"; // replace after you create your page
+const COFFEE_URL = "https://buymeacoffee.com/janish"; // replace after you create your page
 const MY_PHOTO = "/assets/profile/profile.png"; // replace with your photo (e.g. "/janish.jpg" inside /public)
 
 type Project = {
@@ -387,14 +387,14 @@ export default function App() {
                   Real edits made for real businesses. Tap any reel to watch it right here.
                 </p>
               </div>
-              {/* <a
+              <a
                 href={COFFEE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 self-start rounded-full bg-[#FFDD00] px-5 py-2.5 text-sm font-medium text-slate-900 shadow-lg transition-transform hover:scale-105"
               >
                 <span aria-hidden="true">☕</span> Buy me a coffee
-              </a> */}
+              </a>
             </div>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
