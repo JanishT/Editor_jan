@@ -22,33 +22,33 @@ tools: ToolId[];
 };
 
 const projects: Project[] = [
-  {
-    title: "Rone Garage",
-    category: "Automotive",
-    description: "High-energy cuts synced with powerful engine beats, showcasing Dubai’s automotive excellence, premium craftsmanship, and workshop expertise.",
-    result: "Built for: brand trust & service enquirie",
-    thumb: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=600&q=80",
-    drive: "https://drive.google.com/file/d/13YXLSIiF4dhAQNFq4zsbeD5enfqcnu4b/preview",
-      tools: ["premiere", "aftereffects"],
-  },
-  {
-    title: "Nexuslite",
-    category: "Real estate",
-    description: "Smooth cinematic walkthroughs, premium color grading, and elegant motion graphics that highlight property value, strengthen brand identity, and attract potential investors in Dubai’s real estate market.",
-    result: "Built for: property interest & qualified leads",
-    thumb: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80",
-    drive: "https://drive.google.com/file/d/1EPWvWTQrlM0MY_BJLYToDk_H-k1lJmnP/preview",
-    tools: ["premiere", "aftereffects"],
-  },
-  {
-    title: "Makkah Market",
-    category: "Offer campaign",
-    description: "AI-generated promotional visuals, creative product compositions, and dynamic offer-focused editing to highlight Makkah Supermarket’s Dhamakka Offers, capture attention, and boost brand engagement across Saudi Arabia.",
-    result: "Built for: offer awareness & store footfall",
-    thumb: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=600&q=80",
-    drive: "https://drive.google.com/file/d/1BHb7cF6X2N4x96oGdNZbvt_s5UOEhFgU/preview",
-    tools: ["premiere", "gemini"],
-  },
+ {
+  title: "Nexuslite",
+  category: "Real Estate Video Marketing",
+  description: "Crafted attention-grabbing real estate edits with engaging, aspirational content highlights, dynamic beat cuts, and smooth transitions. Designed creative visual outlines to showcase property highlights and strategically present contact details, ensuring the content reaches the right audience and encourages potential client enquiries.",
+  result: "Built for: audience engagement, brand trust & property enquiries",
+  thumb: "/assets/coverimgs/IRR-real estate.jpg",
+ drive: "https://drive.google.com/file/d/1r5HB_8Y65ARSHhhi1xV_wz80jUjyHTdo/preview",
+  tools: ["premiere", "aftereffects"],
+},
+ {
+  title: "Nexuslite",
+  category: "Real estate",
+  description: "Smooth cinematic walkthroughs, premium color grading, and elegant motion graphics that highlight property value and strengthen brand identity. Carefully curated AI-generated animated visuals, engaging beat-synchronized cuts, and strategically highlighted keywords bring key messages to life, creating dynamic and compelling content that captures attention and attracts potential investors in Dubai’s real estate market.",
+  result: "Built for: property interest & qualified leads",
+  thumb: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80",
+  drive: "https://drive.google.com/file/d/1EPWvWTQrlM0MY_BJLYToDk_H-k1lJmnP/preview",
+  tools: ["premiere", "aftereffects"],
+},
+{
+  title: "Al Majarra – Book Introduction",
+  category: "Book Branding",
+  description: "A creative book introduction video crafted to build recognition for Al Majarra by Arabicuni – Spoken Arabic Academy. Featuring premium color grading, immersive sound effects, smooth and hopeful transitions, fluid storytelling, and playful troll-style edits to create an engaging and memorable book presentation.",
+  result: "Created to introduce the book, strengthen its identity, and build brand awareness for Arabicuni – Spoken Arabic Academy.",
+  thumb: "/assets/coverimgs/Al-Majarra_book intro.jpeg",
+drive: "https://drive.google.com/file/d/1StmfoD7Sgc-5OKJH97P_t8E3AfXcbXDj/preview",
+  tools: ["premiere", "aftereffects"],
+},
   {
     title: "Medical Ad",
     category: "Advertisement",
@@ -68,6 +68,15 @@ const projects: Project[] = [
     tools: ["premiere", "aftereffects"],
   
   },
+    {
+    title: "Rone Garage",
+    category: "Automotive",
+    description: "High-energy cuts synced with powerful engine beats, showcasing Dubai’s automotive excellence, premium craftsmanship, and workshop expertise.",
+    result: "Built for: brand trust & service enquirie",
+    thumb: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=600&q=80",
+    drive: "https://drive.google.com/file/d/13YXLSIiF4dhAQNFq4zsbeD5enfqcnu4b/preview",
+      tools: ["premiere", "aftereffects"],
+  },
 ];
 
 
@@ -81,6 +90,9 @@ const TOOL_NAMES: Record<ToolId, string> = {
   gemini: "Gemini",
   flow: "Google Flow",
 };
+
+const PORTFOLIO_FOLDER_URL =
+  "https://drive.google.com/drive/folders/15aAsuN1vt6S4jkhroczUVuWqg6LqUqih";
 
 function ToolIcon({ id, labeled = false }: { id: ToolId; labeled?: boolean }) {
   const box =
@@ -152,6 +164,23 @@ return (
     {icon}
   </span>
 );
+}
+
+function FolderIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+    </svg>
+  );
 }
 
 const aboutImages = [
@@ -381,20 +410,37 @@ export default function App() {
           <section className="liquid-glass rounded-[2rem] bg-white/[0.07] p-5 shadow-2xl backdrop-blur-xl sm:p-8 md:p-10">
             <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
               <div>
-               <p className="mb-3 text-sm font-medium tracking-wide text-white/60">Selected work</p>
+               {/* <p className="mb-3 text-sm font-medium tracking-wide text-white/60">Selected work</p> */}
 <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl" style={display}>Projects</h2>
                 <p className="mt-3 max-w-md text-sm leading-6 text-white/65">
-                  Real edits made for real businesses. Tap any reel to watch it right here.
+                A curated showcase of my best edits, crafted to help brands connect with their target audience and grow visually.
                 </p>
               </div>
-              <a
-                href={COFFEE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 self-start rounded-full bg-[#FFDD00] px-5 py-2.5 text-sm font-medium text-slate-900 shadow-lg transition-transform hover:scale-105"
-              >
-                <span aria-hidden="true">☕</span> Buy me a coffee
-              </a>
+             <div className="flex items-center gap-3 self-start">
+  {/* Portfolio folder */}
+  <a
+    href={PORTFOLIO_FOLDER_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Go to portfolio in Drive"
+    className="group relative flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white shadow-lg backdrop-blur-md transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+  >
+    <FolderIcon />
+    <span className="pointer-events-none absolute -bottom-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-black/80 px-2.5 py-1 text-xs text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">
+     See all works
+    </span>
+  </a>
+
+  {/* Buy me a coffee */}
+  <a
+    href={COFFEE_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 rounded-full bg-[#FFDD00] px-5 py-2.5 text-sm font-medium text-slate-900 shadow-lg transition-transform hover:scale-105"
+  >
+    <span aria-hidden="true">☕</span> Buy me a coffee
+  </a>
+</div>
             </div>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
