@@ -320,7 +320,7 @@ export default function App() {
         >
           Janish T.
         </a>
-        {isWorkPage && (
+        {isWorkPage ? (
           <div className="flex items-center gap-6 text-sm text-white/75">
             <a href="#contact" className="transition-colors hover:text-white">Contact</a>
             <a
@@ -334,7 +334,14 @@ export default function App() {
               Back home <span aria-hidden="true">↗</span>
             </a>
           </div>
-        )}
+        ) : (
+  <a
+    href={`mailto:${EMAIL}?subject=Video%20editing%20enquiry`}
+    className="rounded-full border border-white/30 bg-white/10 px-5 py-2 text-sm font-medium text-white backdrop-blur-md transition-colors hover:bg-white/20"
+  >
+    Contact me
+  </a>
+)}
       </nav>
 
       {isWorkPage ? (
