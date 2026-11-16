@@ -342,14 +342,14 @@ export default function App() {
           {/* ABOUT */}
        <section className="animate-fade-rise grid items-start gap-10 pb-16 pt-10 md:grid-cols-[1fr_260px] md:gap-16 md:pb-24 md:pt-20 lg:grid-cols-[1fr_280px]">
   {/* Photo: first on mobile, right side on desktop */}
-  <div className="order-first mx-auto w-full max-w-[200px] md:order-none md:col-start-2 md:row-start-1 md:max-w-none md:sticky md:top-8">
+  {/* <div className="order-first mx-auto w-full max-w-[200px] md:order-none md:col-start-2 md:row-start-1 md:max-w-none md:sticky md:top-8">
     <img
       src={MY_PHOTO}
       alt="Janish T., video editor"
       className="aspect-[4/5] w-full rounded-2xl object-cover shadow-2xl ring-1 ring-white/20"
     />
     <p className="mt-3 text-center text-sm text-white/70">Janish T. · Video Editor</p>
-  </div>
+  </div> */}
 
   <div className="md:col-start-1 md:row-start-1">
     <p className="text-sm font-medium tracking-wide text-white/60">About me</p>
@@ -501,77 +501,93 @@ export default function App() {
           {active && <VideoModal project={active} onClose={() => setActive(null)} />}
         </main>
       ) : (
-        <section className="relative z-10 flex flex-col items-center justify-center px-6 py-[90px] pb-40 pt-4 text-center sm:pt-20">
-          <p className="animate-fade-rise mb-8 text-[14px] uppercase tracking-wide text-muted-foreground sm:text-[20px] md:text-[30px]">
-            Janish T. | Video Editor
-          </p>
+      <section className="relative z-10 flex flex-col items-center justify-center px-6 py-[90px] pb-24 pt-4 text-center sm:pt-16">
+  {/* Identity */}
+  <img
+    src={MY_PHOTO}
+    alt="Janish T., video editor"
+    className="animate-fade-rise mb-5 h-24 w-24 rounded-full object-cover shadow-2xl ring-2 ring-white/30 sm:h-28 sm:w-28"
+  />
+  <p className="animate-fade-rise mb-6 text-[14px] uppercase tracking-wide text-muted-foreground sm:text-[20px] md:text-[30px]">
+    Janish T. | Video Editor
+  </p>
 
-          <h1 className="animate-fade-rise max-w-7xl text-5xl font-normal tracking-[-2.46px] sm:text-7xl md:text-8xl" style={serif}>
-            Every Frame Tells a Story.
-            <br />
-          </h1>
+  
+  {/* Short description */}
+  <p className="animate-fade-rise-delay mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+  Experienced in working with international clients, mainly in the UAE, I edit cinematic
+reels and ads cut to trending beats and built around your audience.</p>
 
-          <div className="animate-fade-rise-delay mt-8 flex items-center justify-center gap-4 sm:gap-5">
-            {[
-              { t: "Pr", n: "Premiere Pro" },
-              { t: "Ae", n: "After Effects" },
-            ].map((s) => (
-              <div key={s.t} className="flex flex-col items-center gap-1.5" title={`Adobe ${s.n}`}>
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/70 text-white/85 transition-colors hover:border-white hover:text-white sm:h-12 sm:w-12">
-                  <span className="text-sm font-semibold tracking-tight sm:text-base">{s.t}</span>
-                </div>
-                <span className="text-[9px] uppercase tracking-widest text-white/55">{s.n}</span>
-              </div>
-            ))}
+  {/* Software */}
+  <div className="animate-fade-rise-delay mt-8 flex items-center justify-center gap-4 sm:gap-5">
+    {[
+      { t: "Pr", n: "Premiere Pro" },
+      { t: "Ae", n: "After Effects" },
+    ].map((s) => (
+      <div key={s.t} className="flex flex-col items-center gap-1.5" title={`Adobe ${s.n}`}>
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/70 text-white/85 transition-colors hover:border-white hover:text-white sm:h-12 sm:w-12">
+          <span className="text-sm font-semibold tracking-tight sm:text-base">{s.t}</span>
+        </div>
+        <span className="text-[9px] uppercase tracking-widest text-white/55">{s.n}</span>
+      </div>
+    ))}
 
-            <div className="flex flex-col items-center gap-1.5" title="CapCut">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/70 text-white/85 transition-colors hover:border-white hover:text-white sm:h-12 sm:w-12">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-5 w-5 sm:h-6 sm:w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M4 8V6.5A1.5 1.5 0 0 1 5.5 5H15.5A1.5 1.5 0 0 1 17 6.5V7" />
-                  <path d="M4 14v3.5A1.5 1.5 0 0 0 5.5 19H15.5A1.5 1.5 0 0 0 17 17.5V17" />
-                  <path d="M4 8l16.5 8.5" />
-                  <path d="M4 14L20.5 5.5" />
-                </svg>
-              </div>
-              <span className="text-[9px] uppercase tracking-widest text-white/55">CapCut</span>
-            </div>
-          </div>
+    <div className="flex flex-col items-center gap-1.5" title="CapCut">
+      <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/70 text-white/85 transition-colors hover:border-white hover:text-white sm:h-12 sm:w-12">
+        <svg
+          viewBox="0 0 24 24"
+          className="h-5 w-5 sm:h-6 sm:w-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M4 8V6.5A1.5 1.5 0 0 1 5.5 5H15.5A1.5 1.5 0 0 1 17 6.5V7" />
+          <path d="M4 14v3.5A1.5 1.5 0 0 0 5.5 19H15.5A1.5 1.5 0 0 0 17 17.5V17" />
+          <path d="M4 8l16.5 8.5" />
+          <path d="M4 14L20.5 5.5" />
+        </svg>
+      </div>
+      <span className="text-[9px] uppercase tracking-widest text-white/55">CapCut</span>
+    </div>
+  </div>
 
-          <p className="animate-fade-rise-delay mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Crafting cinematic edits, engaging reels, and compelling advertisements through creative
-            storytelling, rhythm, and sound.
-          </p>
 
-          <Button
-            asChild
-            variant="glass"
-            size="hero"
-            className="animate-fade-rise-delay-2 mt-12 gap-3 cursor-pointer"
-          >
-            <a
-              href="/work"
-              onClick={(e) => {
-                e.preventDefault();
-                navigateTo("/work");
-              }}
-            >
-              Explore My Work <span aria-hidden="true">↗</span>
-            </a>
-          </Button>
+  {/* Education + experience */}
+  <div className="animate-fade-rise-delay-2 mt-10 grid w-full max-w-2xl gap-px overflow-hidden rounded-2xl border border-white/20 bg-white/15 text-left shadow-xl backdrop-blur-md sm:grid-cols-2">
+    <div className="bg-white/10 p-5">
+      <p className="text-xs text-white/55">Education</p>
+      <p className="mt-1 text-lg font-bold text-white" style={display}>BSc Computer Science</p>
+    </div>
+    <div className="bg-white/10 p-5">
+      <p className="text-xs text-white/55">Currently working as</p>
+      <p className="mt-1 text-lg font-bold text-white" style={display}>Freelance Video Editor</p>
+    </div>
+  </div>
 
-          <p className="animate-fade-rise-delay-2 mt-8 text-sm uppercase tracking-wide text-muted-foreground">
-            Video Editing · Color Grading · Sound Design
-          </p>
-        </section>
+  <Button
+    asChild
+    variant="glass"
+    size="hero"
+    className="animate-fade-rise-delay-2 mt-10 gap-3 cursor-pointer"
+  >
+    <a
+      href="/work"
+      onClick={(e) => {
+        e.preventDefault();
+        navigateTo("/work");
+      }}
+    >
+      Explore Projects <span aria-hidden="true">↗</span>
+    </a>
+  </Button>
+
+  <p className="animate-fade-rise-delay-2 mt-8 text-sm uppercase tracking-wide text-muted-foreground">
+    Video Editing · Color Grading · Sound Design
+  </p>
+</section>
       )}
     </div>
   );
